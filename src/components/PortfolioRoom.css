@@ -1,0 +1,54 @@
+/* O container do quarto fica fixo na tela */
+.room-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Garante que nada saia da tela */
+  background: linear-gradient(to bottom, #2c3e50, #34495e); /* Um fundo de parede */
+}
+
+/* Título de boas-vindas */
+.welcome-title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  text-align: center;
+  z-index: 10;
+  transition: opacity 0.5s ease;
+}
+
+/* Objeto 1: Um "quadro" que representa um projeto */
+.project-frame {
+  position: absolute;
+  left: 15%; /* Posição inicial fora da tela */
+  top: 40%;
+  width: 250px;
+  height: 150px;
+  background-color: #ecf0f1;
+  border: 10px solid #c0392b;
+  border-radius: 5px;
+  z-index: 5;
+  transition: transform 0.5s ease-out; /* Transição suave */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Objeto 2: Uma "planta" ou um objeto decorativo */
+.decorative-object {
+  position: absolute;
+  right: 15%;
+  bottom: 10%;
+  width: 100px;
+  height: 180px;
+  background-color: #27ae60; /* Verde */
+  border-radius: 50% 50% 0 0;
+  z-index: 4;
+  transition: transform 0.8s ease-out; /* Transição mais lenta para efeito parallax */
+}
