@@ -24,14 +24,6 @@ A ideia é criar mais do que um simples site estático. Conforme você rola a p�
 
 ---
 
-### 🖼️ Preview
-
-
-
-![Preview do Portfólio](link-para-sua-imagem-ou-gif.gif)
-
----
-
 ### ⚙️ Como Executar o Projeto Localmente
 
 Se você quiser explorar o código ou rodar este projeto em sua máquina, siga os passos abaixo:
