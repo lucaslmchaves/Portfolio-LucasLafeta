@@ -26,7 +26,7 @@ A ideia é criar mais do que um simples site estático. Conforme você rola a p�
 
 ### 🖼️ Preview
 
-*[Aqui você pode adicionar um GIF ou uma screenshot do seu portfólio quando ele estiver mais avançado!]*
+
 
 ![Preview do Portfólio](link-para-sua-imagem-ou-gif.gif)
 
