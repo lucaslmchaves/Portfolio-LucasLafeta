@@ -1,12 +1,56 @@
-# React + Vite
+# Portfólio Pessoal - Lucas Lafetá
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o repositório do meu portfólio pessoal, desenvolvido para apresentar minhas habilidades, projetos e trajetória profissional com um design inspirado em terminais e arte ASCII.
 
-Currently, two official plugins are available:
+## 🚀 Visão Geral
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto é um site de página única (SPA) construído com as tecnologias mais modernas de frontend. Ele é totalmente responsivo e inclui um seletor de tema (claro/escuro).
 
-## Expanding the ESLint configuration
+O site apresenta as seguintes seções:
+* **Sobre:** Minha biografia e links sociais.
+* **Experiência:** Minha trajetória profissional.
+* **Projetos:** Uma vitrine dos meus principais trabalhos.
+* **Habilidades:** As tecnologias e ferramentas que eu domino.
+* **Educação:** Minha formação acadêmica.
+* **Contato:** Informações para entrar em contato.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologias Utilizadas
+
+* **Framework:** [Next.js](https://nextjs.org/) (com App Router)
+* **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
+* **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
+* **Componentes UI:** [shadcn/ui](https://ui.shadcn.com/)
+* **Ícones:** [Lucide React](https://lucide.dev/)
+* **Gerenciador de Pacotes:** [pnpm](https://pnpm.io/)
+* **Deployment:** [Vercel](https://vercel.com/)
+
+## 🏁 Como Executar Localmente
+
+Para rodar este projeto na sua máquina, siga os passos abaixo.
+
+### Pré-requisitos
+
+Você precisa ter o [Node.js](https://nodejs.org/) (v18 ou superior) e o [pnpm](https://pnpm.io/installation) instalados.
+
+### Instalação
+
+1.  Clone o repositório:
+    ```bash
+    git clone [https://github.com/seu-usuario/Portfolio-LucasLafeta.git](https://github.com/seu-usuario/Portfolio-LucasLafeta.git)
+    cd Portfolio-LucasLafeta
+    ```
+
+2.  Instale as dependências (note que o projeto usa `pnpm`):
+    ```bash
+    pnpm install
+    ```
+
+### Rodando o Projeto
+
+Execute o servidor de desenvolvimento:
+
+```bash
+pnpm dev
+```
+
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.

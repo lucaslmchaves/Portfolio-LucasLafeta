@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Lucas Lafetá - Portfólio",
-  description: "Portfólio de Desenvolvedor Fullstack com tema ASCII Art",
+  description: "Portfólio de Desenvolvedor Fullstack por Lucas Lafetá",
   generator: "v0.app",
   icons: {
     icon: [
