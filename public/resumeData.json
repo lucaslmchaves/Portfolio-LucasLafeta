@@ -1,0 +1,152 @@
+{
+  "main": {
+    "name": "Lucas Lima Magalhães Lafetá Chaves",
+    "occupation": "Aspirante a Dev Fullstack",
+    "description": "",
+    "image": "profilepic.jpg",
+    "bio": "Busco estágio na área de TI para aprimorar meus conhecimentos técnicos, com foco em aprendizado de linguagens de programação, metodologias ágeis e boas práticas de desenvolvimento de software. Atualmente cursando Engenharia de Software na PUC Minas (3º período), tenho experiência com desenvolvimento web, banco de dados e trabalho em equipe.",
+    "contactmessage": "Vamos construir algo incrível juntos!",
+    "email": "lucaslmchaves@gmail.com",
+    "phone": "(31) 99191-9460",
+    "address": {
+      "street": "Rua Conselheiro Lafaiete, 2005",
+      "city": "Belo Horizonte",
+      "state": "Minas Gerais",
+      "zip": ""
+    },
+    "website": "",
+    "resumedownload": "",
+    "social": [
+      {
+        "name": "github",
+        "url": "https://github.com/lucaslmchaves",
+        "className": "fa fa-github"
+      },
+      {
+        "name": "instagram",
+        "url": "https://instagram.com/lucaslmchaves",
+        "className": "fa fa-instagram"
+      },
+      {
+        "name": "linkedin",
+        "url": "https://linkedin.com/in/lucaslmchaves",
+        "className": "fa fa-linkedin"
+      }
+    ],
+    "profiles": []
+  },
+  "resume": {
+    "skillmessage": "Meu Arsenal Técnico",
+    "education": [
+      {
+        "school": "Universidade Pontifícia Católica de Minas Gerais",
+        "degree": "Bacharelado em Engenharia de Software (3º período)",
+        "graduated": "2023 - 2027",
+        "description": "Focando em desenvolvimento de software, metodologias ágeis e boas práticas"
+      },
+      {
+        "school": "Colégio Espanhol Santa Maria Minas",
+        "degree": "Ensino Médio Completo",
+        "graduated": "2019 - 2021",
+        "description": ""
+      },
+      {
+        "school": "Colégio Logosófico Gonzalez Pecothce",
+        "degree": "Ensino Fundamental Completo",
+        "graduated": "2004 - 2018",
+        "description": ""
+      }
+    ],
+    "work": [
+      {
+        "company": "Farmácia Homeopática Livremente",
+        "title": "Auxiliar Técnico Geral",
+        "years": "2022 - Atual",
+        "description": "Trabalho tanto na parte do laboratório na produção de medicamentos, quanto na parte de atendimento ao cliente, cadastro de consumidores e médicos, criação de planilhas e verificação de estoque. Organização do software Data Farma, conectividade e atualização do layout e logo da farmácia. Auxílio na emissão de notas fiscais e questões de contabilidade."
+      }
+    ],
+    "skills": [
+      {
+        "name": "C",
+        "level": "75%"
+      },
+      {
+        "name": "C++",
+        "level": "75%"
+      },
+      {
+        "name": "Java",
+        "level": "80%"
+      },
+      {
+        "name": "Python",
+        "level": "70%"
+      },
+      {
+        "name": "HTML, CSS e JavaScript",
+        "level": "85%"
+      },
+      {
+        "name": "React",
+        "level": "75%"
+      },
+      {
+        "name": "Node.js",
+        "level": "70%"
+      },
+      {
+        "name": "Spring Boot",
+        "level": "75%"
+      },
+      {
+        "name": "Bootstrap",
+        "level": "80%"
+      },
+      {
+        "name": "Banco de Dados (SQL/NoSQL)",
+        "level": "70%"
+      },
+      {
+        "name": "Git",
+        "level": "80%"
+      },
+      {
+        "name": "Metodologias Ágeis (SCRUM)",
+        "level": "75%"
+      },
+      {
+        "name": "Inglês Avançado",
+        "level": "85%"
+      },
+      {
+        "name": "Espanhol Intermediário",
+        "level": "70%"
+      }
+    ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "Giraflix",
+        "about": "Site para acompanhar lançamentos de séries e filmes. Desenvolvido com Bootstrap, HTML, CSS e JavaScript, oferecendo uma interface intuitiva e responsiva para os usuários se manterem atualizados sobre novos conteúdos.",
+        "image": "/byte.png",
+        "url": "https://github.com/lucaslmchaves"
+      },
+      {
+        "title": "Restaurante Vegano",
+        "about": "Aplicação Spring Boot com back-end em Java para gerenciamento de um restaurante vegano. Inclui funcionalidades de cardápio, pedidos e administração do estabelecimento.",
+        "image": "/akshaya.png",
+        "url": "https://github.com/lucaslmchaves"
+      },
+      {
+        "title": "Troca de Contas de Jogos",
+        "about": "Site desenvolvido em React e Node.js para facilitar a troca de contas contendo skins em jogos online. Sistema completo com autenticação de usuários e gerenciamento de ofertas.",
+        "image": "/devdump.png",
+        "url": "https://github.com/lucaslmchaves"
+      }
+    ]
+  },
+  "testimonials": {
+    "testimonials": []
+  }
+}
