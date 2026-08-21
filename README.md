@@ -56,8 +56,8 @@ só orquestra: decide qual view mostrar, sem lógica própria.
 
 ## Wireframes
 
-Wireframes de média fidelidade, uma tela por seção, no padrão de wireframe kit do Miro (caixas,
-placeholders de imagem e texto, sem cor), feitos pra planejar a estrutura antes de implementar (em
+Wireframes de média fidelidade, uma tela por seção, no padrão de wireframe utilizanado a ferrramente Miro (caixas,
+placeholders de imagem e texto, sem cor), utilizados para planejar a estrutura antes da implementação. (em
 `docs/wireframes/`):
 
 **Tela 1 — Início (menu + mapa)**
@@ -83,8 +83,7 @@ placeholders de imagem e texto, sem cor), feitos pra planejar a estrutura antes 
 
 ## Protótipo (capturas de tela)
 
-Essas são telas reais do protótipo já rodando, pra mostrar que o que tá nos wireframes foi de fato
-implementado:
+Essas são telas reais do protótipo já rodando, pra mostrar que o que tá nos wireframes de fato começou a ser implementado conforme a criação da estrutura incial:
 
 **Mapa**
 ![Captura do mapa](docs/prototipo/01-mapa.png)
@@ -140,4 +139,4 @@ npm run preview
 
 [lucas-lafeta-dev.vercel.app](https://lucas-lafeta-dev.vercel.app)
 
-O deploy final, já com esta versão em React + Vite no ar, é entrega da Sprint 3.
+O deploy final, já com esta versão em React + Vite no ar, sendo entrega somente da Sprint 3.
