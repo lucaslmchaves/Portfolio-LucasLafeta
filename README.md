@@ -56,8 +56,8 @@ só orquestra: decide qual view mostrar, sem lógica própria.
 
 ## Wireframes
 
-Wireframes de média fidelidade, uma tela por seção, no padrão de wireframe utilizanado a ferrramente Miro (caixas,
-placeholders de imagem e texto, sem cor), utilizados para planejar a estrutura antes da implementação. (em
+Wireframes de média fidelidade, uma tela por seção, no padrão de wireframe, foi utilizado a ferrramente web Miro (caixas,
+placeholders de imagem e texto, sem cor) para a criação dos mesmos, sendo eles usados para planejar a estrutura antes da implementação. (em
 `docs/wireframes/`):
 
 **Tela 1 — Início (menu + mapa)**
