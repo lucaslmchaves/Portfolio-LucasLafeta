@@ -2,7 +2,7 @@
 
 Portfólio profissional desenvolvido para a disciplina de Projeto de Software (Engenharia de
 Software, PUC Minas). Esta entrega corresponde à Sprint 1: planejamento, wireframes e o protótipo
-inicial de front-end, com navegação e layout principal já funcionando.
+inicial de front-end, com a estrutura incial já implementada.
 
 ## Ideia do projeto
 
