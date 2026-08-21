@@ -1,12 +1,14 @@
 # Dependencies
 /node_modules
 
-# Next.js build output
-/.next/
-/out/
+# Vite build output
+/dist/
+/dist-ssr/
+*.tsbuildinfo
 
 # Local Environment Variables
 # Nunca envie arquivos .env locais para o repositório!
+.env
 .env.local
 .env.*.local
 *.local
@@ -20,13 +22,17 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Editor directories and files
+# Editor / ferramentas locais
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
+.claude/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

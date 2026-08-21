@@ -1,0 +1,242 @@
+:root {
+  --ink: #1b1b1b;
+  --panel: #f4ecd8;
+  --bg: #1e2a1a;
+  --accent: #ffd54a;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "VT323", monospace;
+  font-size: 1.2rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Press Start 2P", monospace;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Press Start 2P", monospace;
+  color: var(--panel);
+}
+
+.game {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 1rem 2.5rem;
+}
+
+.game__header {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.game__header h1 {
+  font-size: clamp(0.75rem, 3vw, 1.1rem);
+  color: var(--panel);
+  margin: 0;
+}
+
+.nav-menu {
+  position: relative;
+}
+
+.nav-menu__toggle {
+  font-size: 1rem;
+  padding: 0.4rem 0.7rem;
+}
+
+.nav-menu__dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  z-index: 60;
+  background: var(--panel);
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+  min-width: 180px;
+}
+
+.nav-menu__dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.nav-menu__dropdown button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-family: "VT323", monospace;
+  font-size: 1.15rem;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.nav-menu__dropdown button:hover {
+  background: var(--accent);
+}
+
+.help-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.game__main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.game__footer {
+  color: var(--panel);
+  opacity: 0.7;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Overlay das seções */
+.section-view {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 50;
+}
+
+.section-view__panel {
+  width: min(100%, 640px);
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--panel);
+  border: 4px solid var(--ink);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.section-view__header {
+  padding: 1rem 1.25rem;
+  border-bottom: 3px solid var(--ink);
+}
+
+.section-view__header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.section-view__content {
+  padding: 1.25rem;
+  flex: 1;
+}
+
+.section-view__footer {
+  padding: 1rem 1.25rem;
+  border-top: 3px solid var(--ink);
+}
+
+.pixel-button {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.7rem;
+  background: var(--accent);
+  border: 3px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+}
+
+.pixel-button:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.content-block__lead {
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.content-block__note {
+  margin-top: 0.5rem;
+  font-style: italic;
+  opacity: 0.65;
+  font-size: 1rem;
+}
+
+.project-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-list__item {
+  border-bottom: 2px dashed var(--ink);
+  padding-bottom: 0.75rem;
+}
+
+.project-list__item h3 {
+  font-size: 0.85rem;
+  margin: 0 0 0.4rem;
+}
+
+.contact-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.contact-icons a {
+  border: 2px solid var(--ink);
+  padding: 0.4rem 0.8rem;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.contact-icons a:hover {
+  background: var(--accent);
+}
