@@ -19,8 +19,8 @@ Contato).
 - **[Vite](https://vitejs.dev/) 6** — build tool e servidor de desenvolvimento (`npm run dev` /
   `npm run build`).
 - **TypeScript** — tipagem estática pros dados do currículo e pelas props dos componentes.
-- **CSS puro** (sem framework de UI) — dá controle total do visual pixelado do mapa, sem depender
-  de classes utilitárias prontas.
+- **CSS puro** — para obter controle total do visual pixelado do mapa, sem depender
+  de classes utilitárias já prontas.
 - **[Node.js](https://nodejs.org/)** (v18+) e **npm** — ambiente e gerenciador de pacotes.
 
 ## Estrutura inicial do site
