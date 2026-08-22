@@ -5,7 +5,10 @@
     "description": "",
     "image": "profilepic.jpg",
     "bio": "Busco estágio na área de TI para aprimorar meus conhecimentos técnicos, com foco em aprendizado de linguagens de programação, metodologias ágeis e boas práticas de desenvolvimento de software. Atualmente cursando Engenharia de Software na PUC Minas (3º período), tenho experiência com desenvolvimento web, banco de dados e trabalho em equipe.",
+    "occupation_en": "Aspiring Fullstack Developer",
+    "bio_en": "I'm looking for an internship in the IT field to sharpen my technical skills, with a focus on learning programming languages, agile methodologies and good software development practices. Currently studying Software Engineering at PUC Minas (3rd semester), I have experience with web development, databases and teamwork.",
     "contactmessage": "Vamos construir algo incrível juntos!",
+    "contactmessage_en": "Let's build something great together!",
     "email": "lucaslmchaves@gmail.com",
     "phone": "(31) 99191-9460",
     "address": {
@@ -129,19 +132,22 @@
       {
         "title": "Giraflix",
         "about": "Site para acompanhar lançamentos de séries e filmes. Desenvolvido com Bootstrap, HTML, CSS e JavaScript, oferecendo uma interface intuitiva e responsiva para os usuários se manterem atualizados sobre novos conteúdos.",
-        "image": "/byte.png",
+        "technologies": ["HTML", "CSS", "JavaScript", "Bootstrap"],
+        "image": "",
         "url": "https://github.com/lucaslmchaves"
       },
       {
         "title": "Restaurante Vegano",
         "about": "Aplicação Spring Boot com back-end em Java para gerenciamento de um restaurante vegano. Inclui funcionalidades de cardápio, pedidos e administração do estabelecimento.",
-        "image": "/akshaya.png",
+        "technologies": ["Java", "Spring Boot"],
+        "image": "",
         "url": "https://github.com/lucaslmchaves"
       },
       {
         "title": "Troca de Contas de Jogos",
         "about": "Site desenvolvido em React e Node.js para facilitar a troca de contas contendo skins em jogos online. Sistema completo com autenticação de usuários e gerenciamento de ofertas.",
-        "image": "/devdump.png",
+        "technologies": ["React", "Node.js"],
+        "image": "",
         "url": "https://github.com/lucaslmchaves"
       }
     ]

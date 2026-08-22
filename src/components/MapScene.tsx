@@ -9,11 +9,12 @@ const HOUSES: HouseConfig[] = [
   { id: "projetos", label: "Projetos", x: 28, y: 64 },
 ]
 
-const BOAT = { id: "contato" as SectionId, label: "Contato", x: 72, y: 86 }
+const BOAT = { id: "contato" as SectionId, label: "Contato", x: 62, y: 92 }
+const WATER_TOP = 84
 
-const START_POS = { x: 50, y: 8 }
+const START_POS = { x: 50, y: 13 }
 const PLAYER_SIZE = 6
-const STEP = 0.85
+const STEP = 0.38
 const ENTER_DISTANCE_X = 9
 const ENTER_DISTANCE_Y = 8
 
@@ -24,15 +25,17 @@ export interface MapSceneHandle {
 
 interface MapSceneProps {
   onEnterSection: (id: SectionId) => void
+  contatoOpen?: boolean
 }
 
 export const MapScene = forwardRef<MapSceneHandle, MapSceneProps>(function MapScene(
-  { onEnterSection },
+  { onEnterSection, contatoOpen },
   ref,
 ) {
   const [pos, setPos] = useState(START_POS)
   const [direction, setDirection] = useState<Direction>("down")
   const [moving, setMoving] = useState(false)
+  const [hasMoved, setHasMoved] = useState(false)
   const keysHeld = useRef(new Set<string>())
   const worldRef = useRef<HTMLDivElement>(null)
   const allSpots: HouseConfig[] = [...HOUSES, BOAT]
@@ -80,6 +83,7 @@ export const MapScene = forwardRef<MapSceneHandle, MapSceneProps>(function MapSc
 
       if (dx !== 0 || dy !== 0) {
         setMoving(true)
+        setHasMoved(true)
         if (dx < 0) setDirection("left")
         else if (dx > 0) setDirection("right")
         else if (dy < 0) setDirection("up")
@@ -100,6 +104,7 @@ export const MapScene = forwardRef<MapSceneHandle, MapSceneProps>(function MapSc
 
   function handleWorldClick(e: React.MouseEvent<HTMLDivElement>) {
     if ((e.target as HTMLElement).closest(".house")) return
+    setHasMoved(true)
     const rect = worldRef.current!.getBoundingClientRect()
     const clickX = ((e.clientX - rect.left) / rect.width) * 100
     const clickY = ((e.clientY - rect.top) / rect.height) * 100
@@ -114,10 +119,18 @@ export const MapScene = forwardRef<MapSceneHandle, MapSceneProps>(function MapSc
       <div className="map-scene__world" ref={worldRef} onClick={handleWorldClick}>
         <div className="map-scene__hedge map-scene__hedge--left" />
         <div className="map-scene__hedge map-scene__hedge--right" />
+        <div className="map-scene__water" style={{ top: `${WATER_TOP}%` }} />
 
-        <div className="signboard" style={{ left: "50%", top: "4%" }}>
-          <p className="signboard__hint">↑ Pressione as setas para começar</p>
-        </div>
+        <span className="decor decor--tree" style={{ left: "60%", top: "10%" }} />
+        <span className="decor decor--flowers" style={{ left: "14%", top: "48%" }} />
+        <span className="decor decor--tree" style={{ left: "60%", top: "55%" }} />
+        <span className="decor decor--flowers" style={{ left: "16%", top: "78%" }} />
+
+        {!hasMoved && (
+          <div className="signboard" style={{ left: "50%", top: "2%" }}>
+            <p className="signboard__hint">↑ Pressione as setas para começar</p>
+          </div>
+        )}
 
         {HOUSES.map((house) => (
           <House
@@ -130,13 +143,12 @@ export const MapScene = forwardRef<MapSceneHandle, MapSceneProps>(function MapSc
 
         <button
           type="button"
-          className={`boat ${nearestHouse?.id === BOAT.id ? "boat--active" : ""}`}
+          className={`boat ${nearestHouse?.id === BOAT.id ? "boat--active" : ""} ${contatoOpen ? "boat--sailing" : ""}`}
           style={{ left: `${BOAT.x}%`, top: `${BOAT.y}%` }}
           onClick={() => onEnterSection(BOAT.id)}
           aria-label={`Entrar em ${BOAT.label}`}
         >
-          <span className="boat__hull" />
-          <span className="boat__mast" />
+          <span className="boat__sprite" />
           <span className="house__sign">{BOAT.label}</span>
           {nearestHouse?.id === BOAT.id && <span className="house__prompt">ENTER ▶</span>}
         </button>

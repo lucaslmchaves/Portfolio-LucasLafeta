@@ -48,7 +48,13 @@ export default function App() {
   if (!data) {
     return (
       <div className="loading-screen">
-        <p>Carregando...</p>
+        <div className="loading-screen__sprite">
+          <span className="loading-screen__cap" />
+          <span className="loading-screen__head" />
+          <span className="loading-screen__body" />
+        </div>
+        <h1 className="loading-screen__title">Só um instante</h1>
+        <p className="loading-screen__subtitle">não vá a lugar nenhum...</p>
       </div>
     )
   }
@@ -61,7 +67,7 @@ export default function App() {
       </header>
 
       <main className="game__main">
-        <MapScene ref={mapRef} onEnterSection={setOverlay} />
+        <MapScene ref={mapRef} onEnterSection={setOverlay} contatoOpen={overlay === "contato"} />
       </main>
 
       <footer className="game__footer">

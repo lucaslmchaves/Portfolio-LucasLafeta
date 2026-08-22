@@ -9,32 +9,46 @@
 .map-scene__world {
   container-type: size;
   position: relative;
-  width: min(100%, 460px);
+  width: min(100%, 1400px);
   aspect-ratio: 3 / 5;
-  background-color: #4f9a4a;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
-  background-size: 8.3% 4%;
-  border: 6px solid #1b1b1b;
-  border-radius: 4px;
+  background-image: url("/sprites/tile-grass.png");
+  background-size: 8.33cqw 8.33cqw;
+  background-repeat: repeat;
+  border: 3px solid #1b1b1b;
   overflow: hidden;
   image-rendering: pixelated;
   cursor: crosshair;
-  box-shadow: 0 0 0 3px #eee, 0 8px 0 rgba(0, 0, 0, 0.4);
 }
 
-/* Sebes / moitas nas bordas, como no mapa de referência */
+/* Caminho de terra batida saindo do início */
+.map-scene__world::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 10%;
+  transform: translateX(-50%);
+  background-image: url("/sprites/tile-path.png");
+  background-size: 8.33cqw 8.33cqw;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Sebes / cerca nas bordas, como no mapa de referência */
 .map-scene__hedge {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 6%;
-  background-image: radial-gradient(circle, #2f7a34 35%, transparent 36%);
-  background-size: 60% 3.5%;
-  background-color: #3d8a42;
-  border-inline: 2px solid #1b1b1b;
+  width: 7%;
+  background-image: url("/sprites/tile-fence.png");
+  background-size: 7cqw 7cqw;
+  background-repeat: repeat-y;
+  image-rendering: pixelated;
   pointer-events: none;
+  z-index: 1;
 }
 
 .map-scene__hedge--left {
@@ -45,12 +59,83 @@
   right: 0;
 }
 
+/* Água / rio, perto do Contato */
+.map-scene__water {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/sprites/tile-water-highlight.png"), url("/sprites/tile-water-base.png");
+  background-size: 8.33cqw 8.33cqw, 8.33cqw 8.33cqw;
+  background-repeat: repeat, repeat;
+  background-position: 0 0, 0 0;
+  image-rendering: pixelated;
+  pointer-events: none;
+  z-index: 1;
+  animation: water-flow 2.4s linear infinite;
+}
+
+@keyframes water-flow {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: -8.33cqw 0, 0 0;
+  }
+}
+
+/* Decoração: arbustos com flores/frutinhas vermelhas */
+.decor {
+  position: absolute;
+  width: 6cqw;
+  height: 5cqh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.decor--flowers {
+  background:
+    radial-gradient(circle at 30% 65%, #2f7a34 42%, transparent 43%),
+    radial-gradient(circle at 68% 35%, #2f7a34 42%, transparent 43%);
+}
+
+.decor--flowers::before,
+.decor--flowers::after {
+  content: "";
+  position: absolute;
+  width: 32%;
+  height: 32%;
+  background: #d9483c;
+  border-radius: 50%;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.decor--flowers::before {
+  left: 16%;
+  top: 58%;
+}
+
+.decor--flowers::after {
+  left: 54%;
+  top: 22%;
+}
+
+.decor--tree {
+  width: 10cqw;
+  height: 11.5cqw;
+  background-image: url("/sprites/tree.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
 .signboard {
   position: absolute;
   transform: translate(-50%, 0);
   width: 70%;
   text-align: center;
   pointer-events: none;
+  z-index: 2;
 }
 
 .signboard__hint {
@@ -68,41 +153,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 15cqw;
+  width: 16cqw;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   font-family: inherit;
   color: inherit;
+  z-index: 2;
 }
 
-.house__roof {
-  width: 0;
-  height: 0;
-  border-left: 8cqw solid transparent;
-  border-right: 8cqw solid transparent;
-  border-bottom: 7cqh solid #8b3a2b;
-}
-
-.house__wall {
-  position: relative;
-  width: 15cqw;
-  height: 11cqh;
-  background: #e8d3a0;
-  border: 2px solid #1b1b1b;
-  border-top: none;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.house__door {
-  width: 4cqw;
-  height: 6cqh;
-  background: #5a3a22;
-  border: 2px solid #1b1b1b;
-  border-bottom: none;
+.house__sprite {
+  display: block;
+  width: 16cqw;
+  height: 18cqw;
+  background-image: url("/sprites/house.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
 }
 
 .house__sign {
@@ -116,9 +184,8 @@
   white-space: nowrap;
 }
 
-.house--active .house__wall {
-  background: #f7e8bd;
-  box-shadow: 0 0 0 3px #ffd54a;
+.house--active .house__sprite {
+  filter: drop-shadow(0 0 4px #ffd54a) drop-shadow(0 0 4px #ffd54a);
 }
 
 .house__prompt {
@@ -147,32 +214,37 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20cqw;
+  width: 22cqw;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   font-family: inherit;
   color: inherit;
+  z-index: 2;
 }
 
-.boat__mast {
-  width: 2px;
-  height: 5cqh;
-  background: #5a3a22;
+.boat__sprite {
+  display: block;
+  width: 16cqw;
+  height: 16cqw;
+  background-image: url("/sprites/boat.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
 }
 
-.boat__hull {
-  width: 20cqw;
-  height: 6cqh;
-  background: #3663d1;
-  border: 2px solid #1b1b1b;
-  border-radius: 0 0 50% 50% / 0 0 70% 70%;
+.boat--active .boat__sprite {
+  filter: drop-shadow(0 0 4px #ffd54a) drop-shadow(0 0 4px #ffd54a);
 }
 
-.boat--active .boat__hull {
-  background: #5a8bf0;
-  box-shadow: 0 0 0 3px #ffd54a;
+.boat {
+  transition: transform 0.7s ease-in, opacity 0.7s ease-in;
+}
+
+.boat--sailing {
+  transform: translate(140%, -130%) rotate(-4deg);
+  opacity: 0;
 }
 
 /* Personagem */
@@ -182,38 +254,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 7cqw;
   transition: left 0.05s linear, top 0.05s linear;
   z-index: 5;
 }
 
-.player__head {
-  width: 3.4cqw;
-  aspect-ratio: 1;
+.player__shadow {
+  width: 6cqw;
+  height: 1.8cqh;
+  background: rgba(0, 0, 0, 0.25);
   border-radius: 50%;
-  background: #f2c48d;
-  border: 2px solid #1b1b1b;
+  order: 2;
+  margin-top: -3px;
 }
 
-.player__body {
-  width: 4.2cqw;
-  height: 5cqh;
-  margin-top: -2px;
-  background: #3663d1;
-  border: 2px solid #1b1b1b;
-}
-
-.player--walking {
-  animation: hop 0.25s infinite alternate;
-}
-
-@keyframes hop {
-  from {
-    transform: translate(-50%, -100%);
-  }
-  to {
-    transform: translate(-50%, -104%);
-  }
+.player__sprite {
+  display: block;
+  width: 9cqw;
+  height: 9cqw;
+  order: 1;
+  background-image: url("/sprites/character.png");
+  background-size: 300% 400%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
 }
 
 .map-scene__hint {

@@ -14,10 +14,13 @@ export interface Address {
 export interface MainData {
   name: string
   occupation: string
+  occupation_en: string
   description: string
   image: string
   bio: string
+  bio_en: string
   contactmessage: string
+  contactmessage_en: string
   email: string
   phone: string
   address: Address
@@ -56,6 +59,7 @@ export interface ResumeSection {
 export interface Project {
   title: string
   about: string
+  technologies: string[]
   image: string
   url: string
 }

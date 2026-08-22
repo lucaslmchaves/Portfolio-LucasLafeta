@@ -15,10 +15,7 @@ export function House({ house, active, onClick }: HouseProps) {
       onClick={() => onClick(house.id)}
       aria-label={`Entrar em ${house.label}`}
     >
-      <span className="house__roof" />
-      <span className="house__wall">
-        <span className="house__door" />
-      </span>
+      <span className="house__sprite" />
       <span className="house__sign">{house.label}</span>
       {active && <span className="house__prompt">ENTER ▶</span>}
     </button>

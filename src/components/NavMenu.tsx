@@ -30,58 +30,79 @@ export function NavMenu({ onNavigate, onGoHome, onHelp }: NavMenuProps) {
   }, [open])
 
   return (
-    <div className="nav-menu" ref={menuRef}>
-      <button
-        type="button"
-        className="nav-menu__toggle pixel-button"
-        onClick={() => setOpen((v) => !v)}
-        aria-label="Abrir menu de navegação"
-        aria-expanded={open}
-      >
-        ☰
-      </button>
+    <>
+      <nav className="pill-nav" aria-label="Navegação principal">
+        <button type="button" onClick={onGoHome}>
+          Início
+        </button>
+        {NAV_ITEMS.map((item) => (
+          <button key={item.id} type="button" onClick={() => onNavigate(item.id)}>
+            {item.label}
+          </button>
+        ))}
+        <button
+          type="button"
+          className="pill-nav__help"
+          onClick={onHelp}
+          aria-label="Como jogar"
+        >
+          ?
+        </button>
+      </nav>
 
-      {open && (
-        <nav className="nav-menu__dropdown">
-          <ul>
-            <li>
-              <button
-                type="button"
-                onClick={() => {
-                  onGoHome()
-                  setOpen(false)
-                }}
-              >
-                Início
-              </button>
-            </li>
-            {NAV_ITEMS.map((item) => (
-              <li key={item.id}>
+      <div className="nav-menu" ref={menuRef}>
+        <button
+          type="button"
+          className="nav-menu__toggle"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Abrir menu de navegação"
+          aria-expanded={open}
+        >
+          ☰
+        </button>
+
+        {open && (
+          <nav className="nav-menu__dropdown">
+            <ul>
+              <li>
                 <button
                   type="button"
                   onClick={() => {
-                    onNavigate(item.id)
+                    onGoHome()
                     setOpen(false)
                   }}
                 >
-                  {item.label}
+                  Início
                 </button>
               </li>
-            ))}
-            <li>
-              <button
-                type="button"
-                onClick={() => {
-                  onHelp()
-                  setOpen(false)
-                }}
-              >
-                ? Como jogar
-              </button>
-            </li>
-          </ul>
-        </nav>
-      )}
-    </div>
+              {NAV_ITEMS.map((item) => (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onNavigate(item.id)
+                      setOpen(false)
+                    }}
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+              <li>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onHelp()
+                    setOpen(false)
+                  }}
+                >
+                  ? Como jogar
+                </button>
+              </li>
+            </ul>
+          </nav>
+        )}
+      </div>
+    </>
   )
 }

@@ -33,10 +33,68 @@ a {
 .loading-screen {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.75rem;
+}
+
+.loading-screen__sprite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 56px;
+  animation: loading-bob 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes loading-bob {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-8px);
+  }
+}
+
+.loading-screen__cap {
+  width: 30px;
+  height: 10px;
+  background: #c23b3b;
+  border: 2px solid #1b1b1b;
+  border-bottom: none;
+}
+
+.loading-screen__head {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #f2c48d;
+  border: 2px solid #1b1b1b;
+  margin-top: -2px;
+}
+
+.loading-screen__body {
+  width: 32px;
+  height: 34px;
+  margin-top: -2px;
+  background: #3663d1;
+  border: 2px solid #1b1b1b;
+}
+
+.loading-screen__title {
   font-family: "Press Start 2P", monospace;
+  font-size: 1rem;
   color: var(--panel);
+  margin: 0.5rem 0 0;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.loading-screen__subtitle {
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  color: var(--panel);
+  opacity: 0.65;
+  margin: 0;
 }
 
 .game {
@@ -44,13 +102,13 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
-  padding: 1.5rem 1rem 2.5rem;
+  gap: 0.75rem;
+  padding: 0.75rem 0.5rem 1.5rem;
 }
 
 .game__header {
   width: 100%;
-  max-width: 460px;
+  max-width: 1400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -61,8 +119,49 @@ a {
   font-size: clamp(0.75rem, 3vw, 1.1rem);
   color: var(--panel);
   margin: 0;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
 }
 
+/* Pílula de navegação (estilo GB), visível em telas largas */
+.pill-nav {
+  display: none;
+  width: min(100%, 1400px);
+  background: linear-gradient(#2a1710, #150b07);
+  border: 3px solid #d9bd8a;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.pill-nav button {
+  flex: 1;
+  background: none;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f4ecd8;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.75rem 0.4rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.pill-nav button:last-child {
+  border-right: none;
+}
+
+.pill-nav button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent);
+}
+
+.pill-nav__help {
+  flex: 0 0 3rem !important;
+}
+
+/* Hambúrguer, visível em telas estreitas */
 .nav-menu {
   position: relative;
 }
@@ -70,6 +169,16 @@ a {
 .nav-menu__toggle {
   font-size: 1rem;
   padding: 0.4rem 0.7rem;
+  font-family: "Press Start 2P", monospace;
+  background: var(--accent);
+  border: 3px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  cursor: pointer;
+}
+
+.nav-menu__toggle:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 
 .nav-menu__dropdown {
@@ -106,6 +215,22 @@ a {
 
 .nav-menu__dropdown button:hover {
   background: var(--accent);
+}
+
+@media (min-width: 700px) {
+  .game__header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pill-nav {
+    display: flex;
+    order: -1;
+  }
+
+  .nav-menu {
+    display: none;
+  }
 }
 
 .help-list {
@@ -239,4 +364,146 @@ a {
 
 .contact-icons a:hover {
   background: var(--accent);
+}
+
+/* Toggle de idioma (Sobre Mim) */
+.lang-toggle {
+  display: inline-flex;
+  align-self: flex-start;
+  border: 2px solid var(--ink);
+}
+
+.lang-toggle button {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.65rem;
+  background: var(--panel);
+  border: none;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.lang-toggle button + button {
+  border-left: 2px solid var(--ink);
+}
+
+.lang-toggle__active {
+  background: var(--accent);
+}
+
+/* Linha do tempo de projetos */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline__item {
+  position: relative;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-left: 2px dashed var(--ink);
+  margin-left: 0.4rem;
+}
+
+.timeline__item:last-child {
+  border-left: 2px dashed transparent;
+  padding-bottom: 0;
+}
+
+.timeline__dot {
+  position: absolute;
+  left: -0.5rem;
+  top: 0.2rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--accent);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+
+.timeline__card h3 {
+  font-size: 0.85rem;
+  margin: 0 0 0.4rem;
+}
+
+.timeline__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(0, 0, 0, 0.06);
+  border: 2px dashed var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.timeline__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.timeline__image-placeholder {
+  font-size: 0.95rem;
+  opacity: 0.55;
+  font-style: italic;
+}
+
+.tech-tags {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-tags li {
+  font-size: 0.85rem;
+  border: 2px solid var(--ink);
+  padding: 0.1rem 0.5rem;
+  background: var(--panel);
+}
+
+/* Formulário de contato */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border: 2px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 3px solid var(--accent);
+}
+
+.contact-form__error {
+  color: #b3261e;
+  font-size: 0.9rem;
+}
+
+.contact-form button {
+  align-self: flex-start;
 }
